@@ -96,76 +96,93 @@ df['Average'] = df[['Math','Electronics','GEAS','Communication']].mean(axis=1)
 ```
 - Compute first the average of each row or per student for 4 subjects
 <br>
+
+
 **How does chosen track in college contributes to average grade**
 ```
-fig, ave_by_track = plt.subplots()
+ave_by_track = df.groupby('Track')['Average'].mean()
 ```
-- Create a figure (fig) and a single set of axes (ave_by_track) for plotting
-
+- Group the data by Track and Calaculate the average score per track
 ```
-ave_by_track.bar(df['Track'], df['Average'])
+fig, ax = plt.subplots()
 ```
-- Plot a bar chart on the axes, using 'Track' as categories (x-axis)
-- and 'Average' as the corresponding bar heights (y-axis)
-
+- Create a figure (fig) and a single set of axes (ax) for plotting
 ```
-ave_by_track.set(title= 'Average by Track', ylabel='Average', xlabel='Track in College')
+ax.bar(ave_by_track.index, ave_by_track.values)
+```
+- Plot a bar chart showing the average score for each track
+```
+ax.set(title='Average by Track', ylabel='Average', xlabel='Track in College')
 ```
 - Set the title and axis labels
-
 ```
 plt.show()
 ```
 - Show the plot
 
 
-<br>
+**Output:**
+- <img width="630" height="507" alt="image" src="https://github.com/user-attachments/assets/aa9afb14-e08a-407a-af83-97ad2f96c29a" />
+- Based on the graph, the chosen track in college contributes to higher average scores, with the Communication track obtaining the highest average, closely followed by Microelectronics, while Instrumentation recorded the lowest average.
+
 
 **How does gender contributes to average grade**
 ```
-fig, ave_by_gender = plt.subplots()
+ave_by_gender = df.groupby('Gender')['Average'].mean()
 ```
-- Create a figure (fig) and a single set of axes (gender) for plotting
-
+- Group the data by Gender and Calaculate the average score per Gender
 ```
-ave_by_gender.bar(df['Gender'], df['Average'])
+fig, ax = plt.subplots()
 ```
-- Plot a bar chart on the axes, using 'Gender' as categories (x-axis)
-- and 'Average' as the corresponding bar heights (y-axis)
-
+- Create a figure (fig) and a single set of axes (ax) for plotting
 ```
-ave_by_gender.set(title= 'Average by Gender', ylabel='Average', xlabel='Gender')
+ax.bar(ave_by_gender.index, ave_by_gender.values)
+```
+- Plot a bar chart showing the average score for each gender
+```
+ax.set(title='Average by Gender', ylabel='Average', xlabel='Gender')
 ```
 - Set the title and axis labels
-
 ```
 plt.show()
 ```
 - Show the plot
+
+
+
+**Output:**
+- <img width="624" height="501" alt="image" src="https://github.com/user-attachments/assets/0144d202-67a9-4f33-b8c3-a39a4aa2ffc9" />
+- Based on the graph, gender contributes to higher average scores, with male students obtaining slightly higher average than female students.
 
 <br>
 
 **How does hometown contributes to average grade**
 ```
-fig, ave_by_hometown = plt.subplots()
+ave_by_hometown = df.groupby('Hometown')['Average'].mean()
 ```
-- Create a figure (fig) and a single set of axes (ave_by_hometown) for plotting
-
+- Group the data by Hometown and Calaculate the average score per hometown
 ```
-ave_by_hometown.bar(df['Track'], df['Average'])
+fig, ax = plt.subplots()
 ```
-- Plot a bar chart on the axes, using 'Hometown' as categories (x-axis)
-- and 'Average' as the corresponding bar heights (y-axis)
-
+- Create a figure (fig) and a single set of axes (ax) for plotting
 ```
-ave_by_hometown.set(title= 'Average by Track', ylabel='Average', xlabel='Track in College')
+ax.bar(ave_by_hometown.index, ave_by_hometown.values)
+```
+- Plot a bar chart showing the average score for each hometown
+```
+ax.set(title='Average by Hometown', ylabel='Average', xlabel='Hometown')
 ```
 - Set the title and axis labels
-
 ```
 plt.show()
 ```
 - Show the plot
+
+
+
+**Output:**
+- <img width="626" height="508" alt="image" src="https://github.com/user-attachments/assets/42f49b73-bb2c-4317-bb6d-2c57b6bd286f" />
+- Based on the graph, hometown contributes to higher average scores, with Luzon obtaining the highest average, followed by Mindanao, while Visayas recorded the lowest average.
 
 
 
